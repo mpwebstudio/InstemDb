@@ -1,0 +1,9 @@
+﻿@model InstemDb.Services.Models.Info.ActorInfoResponseModel
+@{
+    ViewData["Title"] = "Actor Info";
+}
+
+<h2>@Model.Name</h2>
+
+@await Html.PartialAsync("_Filmography", Model.Filmography)
+

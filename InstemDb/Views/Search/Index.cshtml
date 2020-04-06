@@ -1,0 +1,29 @@
+﻿@model IEnumerable<InstemDb.Services.Models.Search.SearchResponseModel>
+@{
+    ViewData["Title"] = "Search";
+}
+
+@if (Model.Any())
+{
+    <ul class="list-group">
+        <li type="button" class="list-group-item list-group-item-action active">
+            Search Results
+        </li>
+
+        @foreach (var item in Model)
+        {
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+
+                <a href="@item.Url">@item.Name</a>
+                <span class="badge badge-pill">
+                    <img src="@item.ImageUrl" width="40" height="40" onerror="this.onerror=null; this.src='../img/default.jpg'" />
+                </span>
+            </li>
+        }
+    </ul>
+}
+
+else
+{
+    <h2>No results found</h2>
+}

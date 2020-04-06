@@ -1,0 +1,36 @@
+﻿@model IEnumerable<InstemDb.Services.Models.Info.FilmographyResponseModel>
+
+<h3>Filmography</h3>
+
+<div class="table-responsive-sm">
+    <table id="datatable" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <td></td>
+                <th>Movie</th>
+                <th>Year</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td><img src="@item.ImageUrl" width="40" height="40" onerror="this.onerror=null; this.src='../../img/default.jpg'" /></td>
+                    <td><a href="/Info/MovieInfo/?id=@item.Id">@item.Title</a></td>
+                    <td>@item.Year</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#datatable').DataTable({
+            "searching": false,
+            "info": false,
+            "bLengthChange": false
+        });
+    });
+</script>
+
